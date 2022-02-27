@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "../App.css";
 
-const ProductForm = () => {
+const ProductForm = (props) => {
+    const {submissionBoolean, setSubmissionBoolean} = props;
     const [title, setTitle] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
@@ -15,8 +16,10 @@ const ProductForm = () => {
             description,
         };
         axios.post("http://localhost:8000/api/products", newProductData)
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err));
+        .then((response) => {
+            console.log(response);
+            setSubmissionBoolean(!submissionBoolean);
+        .catch((erar) => console.log(err));
     };
 
     return (

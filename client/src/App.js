@@ -1,11 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import ProductForm from './components/ProductForm';
+import { Router } from "@reach/router";
+import Main from './views/Main';
+
 
 function App() {
   return (
     <div className="App">
-      <ProductForm />
+      <Router>
+        <Main path="/" />
+      </Router>
     </div>
   );
 }
